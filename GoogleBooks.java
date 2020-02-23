@@ -111,7 +111,7 @@ public class GoogleBooks {
         }
 
         int lc = 0,durclid, tD = D;
-        while(tD>0) {
+        while(tD>0 && lc<L) {
             //durclid= (int) (libraries[LID[clid]][1]+Math.ceil((libraries[LID[clid]][1]*1.0)/libraries[LID[clid]][2]));
             durclid=libraries[LID[lc]][1];
             if(durclid<D) {
@@ -126,8 +126,8 @@ public class GoogleBooks {
 
         for(int i = 0;i<tD;i++) {
             fos.write(""+(LID[i]+1)+ " " + libraries[LID[i]][0]+"\n");
-            for(int j = 0;j< libraries[LID[lc]][0];j++) {
-                fos.write(""+LID[i]+1 + " " + books.get(0)[j]+" ");
+            for(int j = 0;j< libraries[LID[i]][0];j++) {
+                fos.write(""+books.get(i)[j]+" ");
             }
             fos.write("\n");
         }
